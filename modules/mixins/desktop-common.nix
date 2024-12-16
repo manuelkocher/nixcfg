@@ -5,12 +5,11 @@
   userLogin,
   termFontSize,
   useSecrets,
-  useEspanso,
   lib,
   ...
 }:
 {
-  imports = lib.optional (useEspanso) ./espanso.nix ++ [
+  imports = [
     ./desktop-common-minimum.nix
     ./git.nix
   ];

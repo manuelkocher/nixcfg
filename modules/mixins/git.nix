@@ -21,9 +21,6 @@
         ".idea"
         ".direnv"
       ];
-      signing = {
-        signByDefault = false;
-      };
     };
 
     # we had that file by default in the past

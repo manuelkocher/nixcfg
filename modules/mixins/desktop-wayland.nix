@@ -9,7 +9,6 @@
   imports = [
     ./desktop-common.nix
     ./desktop-common-plasma6.nix
-    ./espanso-latest.nix
   ];
 
   services.displayManager.defaultSession = "plasma";
@@ -25,11 +24,6 @@
       pkgs.lib.reverseList config.environment.profiles
     )}";
   };
-
-  environment.systemPackages = with pkgs; [
-    # Add missing dependency for espanso
-    wl-clipboard
-  ];
 
   home-manager.users.${userLogin} = {
     xdg.desktopEntries = {
