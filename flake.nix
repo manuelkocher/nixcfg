@@ -1,5 +1,5 @@
 {
-  description = "pbek's machines";
+  description = "mkocher's machines";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
