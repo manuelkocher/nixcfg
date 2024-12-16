@@ -85,21 +85,13 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    attic-client
-    inputs.agenix.packages.x86_64-linux.default
     firefox
     magic-wormhole
     xclip
     fzf
     fishPlugins.fzf-fish
     usbutils # lsusb
-
-    #    qownnotes
-    (pkgs.qt6Packages.callPackage ../../apps/qownnotes/default.nix { })
-    qc
-    #    (pkgs.callPackage ../../apps/qc/default.nix { })
     bluez
-    nextcloud-client
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

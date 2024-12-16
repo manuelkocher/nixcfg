@@ -7,8 +7,6 @@
     #    nixinate.url = "github:matthewcroughan/nixinate";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    agenix.url = "github:ryantm/agenix";
-    agenix.inputs.nixpkgs.follows = "nixpkgs";
     #    robotnix.url = "github:danielfullmer/robotnix";
     pia.url = "github:pia-foss/manual-connections";
     pia.flake = false;
@@ -22,7 +20,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
-    espanso-fix.url = "github:pitkling/nixpkgs/espanso-fix-capabilities-export";
   };
 
   outputs =
@@ -32,13 +29,11 @@
       home-manager,
       nixpkgs,
       nixpkgs-stable,
-      agenix,
       pia,
       catppuccin,
       disko,
       nixos-hardware,
       plasma-manager,
-      espanso-fix,
       #      , robotnix
       ...
     }@inputs:
@@ -74,8 +69,6 @@
             nixpkgs.overlays = [ overlays-nixpkgs ];
           }
         )
-        agenix.nixosModules.age
-        espanso-fix.nixosModules.espanso-capdacoverride
       ];
     in
     {
@@ -92,7 +85,6 @@
         waylandSupport = true; # Wayland is the default, otherwise use X11
         usePlasma6 = true; # Plasma 6 is the default, otherwise use Plasma 5
         useStableJetbrains = false; # Set this to true to use stable versions
-        useEspanso = true; # Use Espanso by default
       };
 
       nixosConfigurations = {
@@ -172,7 +164,6 @@
             waylandSupport = false;
             termFontSize = 16.0;
             usePlasma6 = true;
-            useEspanso = false; # App-specific configurations are not yet supported in Wayland on caliban!
           };
         };
         # TU Work PC
@@ -183,7 +174,6 @@
             ./hosts/caliban/hardware-configuration.nix
             home-manager.nixosModules.home-manager
             { home-manager.sharedModules = [ plasma-manager.homeManagerModules.plasma-manager ]; }
-            agenix.nixosModules.age
             disko.nixosModules.disko
           ];
           specialArgs = self.commonArgs // {
@@ -393,7 +383,6 @@
         #        modules = [
         #          ./hosts/vm-desktop/vm.nix
         #          home-manager.nixosModules.home-manager { home-manager.sharedModules = [ plasma-manager.homeManagerModules.plasma-manager ]; }
-        #          agenix.nixosModules.age
         #        ];
         #        specialArgs = self.commonArgs // { inherit inputs; };
         #      };
@@ -403,7 +392,6 @@
         #        modules = [
         #          ./hosts/vm-server/vm.nix
         #          home-manager.nixosModules.home-manager
-        #          agenix.nixosModules.age
         #        ];
         #        specialArgs = self.commonArgs // { inherit inputs; };
         #      };

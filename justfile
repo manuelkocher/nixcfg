@@ -23,8 +23,6 @@ alias c := cleanup
 alias b := build
 alias bh := build-on-home01
 alias bc := build-on-caliban
-alias p := push
-alias sp := switch-push
 alias fix-command-not-found-error := update-channels
 alias nixfmt := nix-format
 
@@ -119,12 +117,6 @@ build-on-home01 args='':
 nh-build-on-home01:
     nh os build -H {{ hostname }} . -- --build-host omega@home01.lan
 
-[group('cache')]
-switch-push: switch && push
-
-[group('cache')]
-switch-push-all: push-all push
-
 # Update the flakes
 [group('build')]
 update:
@@ -133,95 +125,6 @@ update:
 # Update the flakes and switch to the new configuration
 [group('build')]
 upgrade: update && switch
-
-[group('cache')]
-upgrade-push: upgrade push
-
-[group('cache')]
-upgrade-push-all: upgrade push-all push
-
-[group('cache')]
-push:
-    -attic push main `which cura5` --no-closure
-    -attic push qownnotes `which qownnotes` --no-closure
-    -attic push qownnotes `which qc` --no-closure
-
-[group('cache')]
-push-all:
-    ./scripts/push-all-to-attic.sh
-
-[group('cache')]
-push-local:
-    attic push --ignore-upstream-cache-filter cicinas2:nix-store `which phpstorm` --no-closure
-    attic push --ignore-upstream-cache-filter cicinas2:nix-store `which clion` --no-closure
-    attic push --ignore-upstream-cache-filter cicinas2:nix-store `which goland` --no-closure
-
-# Rekey the agenix secrets using ~/.ssh/agenix
-[group('agenix')]
-rekey-fallback:
-    cd ./secrets && agenix -i ~/.ssh/agenix --rekey
-
-# Rekey the agenix secrets
-[group('agenix')]
-rekey:
-    cd ./secrets && agenix --rekey
-
-# Show ssh keys for agenix
-[group('agenix')]
-keyscan:
-    ssh-keyscan localhost
-
-# Build an iso image
-[group('build')]
-build-iso:
-    nix-build '<nixpkgs/nixos>' -A config.system.build.isoImage -I nixos-config=iso.nix
-
-# Boot the built iso image in QEMU
-[group('build')]
-boot-iso:
-    nix-shell -p qemu --run "qemu-system-x86_64 -m 256 -cdrom result/iso/nixos-*.iso"
-
-[group('vm')]
-boot-vm:
-    QEMU_OPTS="-m 4096 -smp 4 -enable-kvm" QEMU_NET_OPTS="hostfwd=tcp::2222-:22" ./result/bin/run-*-vm
-
-[group('vm')]
-boot-vm-no-kvm:
-    QEMU_OPTS="-m 4096 -smp 4" QEMU_NET_OPTS="hostfwd=tcp::2222-:22" ./result/bin/run-*-vm
-
-[group('vm')]
-boot-vm-console:
-    QEMU_OPTS="-nographic -serial mon:stdio" QEMU_KERNEL_PARAMS=console=ttyS0 QEMU_NET_OPTS="hostfwd=tcp::2222-:22" ./result/bin/run-*-vm
-
-[group('vm')]
-boot-vm-server-console:
-    QEMU_OPTS="-nographic -serial mon:stdio" QEMU_KERNEL_PARAMS=console=ttyS0 QEMU_NET_OPTS="hostfwd=tcp::2222-:2222" ./result/bin/run-*-vm
-
-[group('vm')]
-ssh-vm-server:
-    ssh -p 2222 omega@localhost -t "tmux new-session -A -s pbek"
-
-# Reset the VM
-[group('vm')]
-[confirm("Are you sure you want to reset the VM?")]
-reset-vm:
-    rm *.qcow2
-
-[group('vm')]
-ssh-vm:
-    ssh -p 2222 omega@localhost -t "tmux new-session -A -s pbek"
-
-[group('vm')]
-build-vm-desktop:
-    nixos-rebuild --flake .#vm-desktop build-vm
-
-[group('vm')]
-build-vm-server:
-    nixos-rebuild --flake .#vm-server build-vm
-
-[group('vm')]
-build-vm-netcup02:
-    nixos-rebuild --flake .#vm-netcup02 build-vm
 
 # Rebuild the current host
 [group('build')]
@@ -322,11 +225,6 @@ home-manager-status:
 home01-restart-nix-serve:
     systemctl restart nix-serve
 
-# Edit the QOwnNotes build file
-[group('qownnotes')]
-edit-qownnotes-build:
-    kate ./apps/qownnotes/default.nix -l 23 -c 19
-
 # Run a fish shell with all needed tools
 [group('maintenance')]
 shell:
@@ -340,11 +238,6 @@ qownnotes-hash:
     version=$(gum input --placeholder "QOwnNotes version number")
     url="https://github.com/pbek/QOwnNotes/releases/download/v${version}/qownnotes-${version}.tar.xz"
     nix-prefetch-url "$url" | xargs nix hash convert --hash-algo sha256
-
-# Update the QOwnNotes release in the app
-[group('qownnotes')]
-qownnotes-update-release:
-    ./scripts/update-qownnotes-release.sh
 
 # Get the reverse dependencies of a nix store path
 [group('maintenance')]

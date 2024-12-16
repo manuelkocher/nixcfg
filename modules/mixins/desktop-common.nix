@@ -26,19 +26,12 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    #    smartgithg
-    #    (pkgs.callPackage ../../apps/smartgithg/default.nix { })
-    #    gittyup
-    #    (pkgs.libsForQt5.callPackage ../../apps/gittyup/default.nix { })
     kdiff3
     chromium
     qtcreator
     hub
 
     loganalyzer
-    #    (pkgs.libsForQt5.callPackage ../../apps/loganalyzer/default.nix { })
-    #    noseyparker
-    #    (pkgs.callPackage ../../apps/noseyparker/default.nix { })
 
     keepassxc
     gcc
@@ -200,28 +193,11 @@
   # https://rycee.gitlab.io/home-manager/options.html
   # https://nix-community.github.io/home-manager/options.html#opt-home.file
   home-manager.users.${userLogin} = {
-    # Set the path to the pia-manual repository and the userLogin and password for the PIA VPN script
-    home.file."Scripts/pia.sh" = {
-      text =
-        if useSecrets then
-          ''
-            #!/usr/bin/env bash
-            # PIA startup script
-            set -e
-            cd "${inputs.pia}"
-            sudo VPN_PROTOCOL=wireguard DISABLE_IPV6=yes DIP_TOKEN=no AUTOCONNECT=true PIA_PF=false PIA_DNS=false PIA_USER=$(cat "${config.age.secrets.pia-user.path}") PIA_PASS=$(cat "${config.age.secrets.pia-pass.path}") ./run_setup.sh
-          ''
-        else
-          "";
-      executable = true;
-    };
-
     xdg.desktopEntries = {
       qtcreator-nix-shell = {
         name = "Qt Creator with nix-shell";
         genericName = "C++ IDE for developing Qt applications";
         comment = "";
-        #        icon = "${pkgs.qtcreator-qt6}/share/icons/hicolor/128x128/apps/QtProject-qtcreator.png";
         icon = "${pkgs.qtcreator}/share/icons/hicolor/128x128/apps/QtProject-qtcreator.png";
         exec = "nix-shell /home/${userLogin}/.shells/qt5.nix --run qtcreator";
         terminal = false;
