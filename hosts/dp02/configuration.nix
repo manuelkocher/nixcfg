@@ -37,6 +37,7 @@
 
   environment.systemPackages = with pkgs; [
     go-passbolt-cli
+    zulip
   ];
 
   # https://nixos.wiki/wiki/nvidia

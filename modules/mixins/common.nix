@@ -269,8 +269,8 @@
       # Sync your shell history across all your devices
       # https://docs.atuin.sh
       atuin = {
-        enable = true;
-        enableFishIntegration = true;
+        enable = false;
+        enableFishIntegration = false;
         # Writing to the atuin history work with bash
         # See https://github.com/nix-community/home-manager/issues/5958
         enableBashIntegration = false;
