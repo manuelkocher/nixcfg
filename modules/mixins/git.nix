@@ -23,7 +23,6 @@
       ];
       signing = {
         signByDefault = false;
-        key = "E00548D5D6AC812CAAD2AFFA9C42B05E591360DC";
       };
     };
 
@@ -40,7 +39,6 @@
       [user]
         name = ${userNameLong}
         email = ${userEmail}
-        signingkey = E00548D5D6AC812CAAD2AFFA9C42B05E591360DC
       [gc]
         autoDetach = false
       [url "ssh://git@github.com/"]

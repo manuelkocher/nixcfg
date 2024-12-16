@@ -13,7 +13,7 @@
   home-manager.users.${userLogin} = {
     # https://mynixos.com/home-manager/options/services.espanso
     services.espanso = {
-      enable = true;
+      enable = false;
       configs = {
         default = {
           search_shortcut = "ALT+SHIFT+SPACE";
