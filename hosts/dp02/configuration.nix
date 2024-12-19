@@ -50,7 +50,9 @@
 
     # production: version 550
     # latest: version 560
-    package = config.boot.kernelPackages.nvidiaPackages.latest;
+    # set to beta to fix wayland lagging issues
+    # TODO remove after bug has been fixed
+    package = config.boot.kernelPackages.nvidiaPackages.beta;
 
     # Nvidia power management. Experimental, and can cause sleep/suspend to fail.
     # Enable this if you have graphical corruption issues or application crashes after waking
@@ -59,8 +61,14 @@
     powerManagement.enable = true;
 
     #    # nvidia-drm.modeset=1 is required for some wayland compositors, e.g. sway
-    #    modesetting.enable = true;
+    modesetting.enable = true;
   };
+
+  # disable GSP firmware to fix wayland lagging bug
+  # TODO remove after bug has been fixed
+  boot.kernelParams = [
+    "nvidia.NVreg_EnableGpuFirmware=0"
+  ];
 
   # We have enough RAM
   zramSwap.enable = false;
