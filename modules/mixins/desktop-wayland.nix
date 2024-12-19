@@ -26,15 +26,6 @@
 
   };
 
-  # env variables to prevent lagging in wayland
-  # TODO remove after the bug has been fixed
-  environment.variables = {
-    GBM_BACKEND="nvidia-drm";
-    __GLX_VENDOR_LIBRARY_NAME="nvidia";
-    ENABLE_VKBASALT="1";
-    LIBVA_DRIVER_NAME="nvidia";
-  };
-
   home-manager.users.${userLogin} = {
     xdg.desktopEntries = {
       ferdium-wayland = {
