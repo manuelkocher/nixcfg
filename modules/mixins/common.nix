@@ -36,13 +36,13 @@
       };
       shellAbbrs = {
         killall = "pkill";
-        less = "bat";
+        # less = "bat";
         #      cat = "bat";
         #      man = "tldr";
-        man = "batman";
-        du = "dua";
+        # man = "batman";
+        # du = "dua";
         ncdu = "dua interactive";
-        df = "duf";
+        # df = "duf";
         tree = "erd";
         tmux = "zellij";
         dig = "dog";
