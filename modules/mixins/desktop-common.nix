@@ -185,7 +185,7 @@
 
   services.pcscd.enable = true;
   services.udev.packages = [ pkgs.yubikey-personalization ];
-  #  programs.ssh.startAgent = false;
+  programs.ssh.startAgent = true;
 
   # Enable resoved to let wireguard set a DNS
   services.resolved.enable = true;

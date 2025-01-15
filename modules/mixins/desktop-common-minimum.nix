@@ -99,7 +99,7 @@
   # programs.mtr.enable = true;
   programs.gnupg.agent = {
     enable = true;
-    enableSSHSupport = true;
+    enableSSHSupport = false;
     # You seem to need to set the default pinentry, otherwise there is a conflict
     # Try to use pinentry-qt to be able to enter the password in kmail
     pinentryPackage = pkgs.pinentry-qt;
