@@ -16,24 +16,6 @@
   programs = {
     fish = {
       enable = true;
-      shellAliases = {
-        gitc = "git commit";
-        gitps = "git push";
-        gitplr = "git pull --rec";
-        gitpl = "git pull && git submodule update --init";
-        gitpls = "git pull";
-        gita = "git add -A";
-        gits = "git status";
-        gitd = "git diff";
-        gitds = "git diff --staged";
-        gitl = "git log";
-        vim = "nvim";
-        ll = "eza -hal --icons --group-directories-first";
-        fish-reload = "exec fish";
-        lg = "lazygit";
-        duai = "dua interactive";
-        j = "just";
-      };
       shellAbbrs = {
         killall = "pkill";
         # less = "bat";
@@ -187,6 +169,7 @@
     procs # ps "replacement"
     just # command runner like make
     neosay # send messages to matrix room
+    gimp
   ];
 
   # Do garbage collection
