@@ -47,6 +47,7 @@
     __GLX_VENDOR_LIBRARY_NAME="nvidia";
     ENABLE_VKBASALT="1";
     LIBVA_DRIVER_NAME="nvidia";
+    KWIN_DRM_USE_MODIFIERS="0";
   };
 
   # https://nixos.wiki/wiki/nvidia
@@ -55,7 +56,7 @@
   hardware.graphics.enable = true;
   hardware.nvidia = {
     # https://github.com/NVIDIA/open-gpu-kernel-modules?tab=readme-ov-file#compatible-gpus
-    open = true;
+    open = false;
 
     # production: version 550
     # latest: version 560
