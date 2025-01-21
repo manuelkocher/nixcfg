@@ -1,6 +1,6 @@
 # nixcfg
 
-[GitHub](https://github.com/pbek/nixcfg)
+[GitHub](https://github.com/manuelkocher/nixcfg)
 
 My personal NixOS config of my machines.
 
@@ -11,48 +11,6 @@ My personal NixOS config of my machines.
 #### Shell
 
 ![Shell](./screenshots/shell.png)
-
-## Setup
-
-Pick your hostname, you might find some inspiration [here](https://spaceplace.nasa.gov/review/switch-a-roo/planet_sizes.en.jpg).
-
-Set your hostname and run the [install script](./install.sh):
-
-```bash
-# Start with a fresh NixOS installation in ~/Code/nixcfg
-HOSTNAME=yourhostname bash <(curl -s https://raw.githubusercontent.com/pbek/nixcfg/main/install.sh)
-
-# Initially build and switch to new configuration for host "yourhostname" after you adapted flake.nix and your configuration.nix
-nix-shell -p git --run "sudo nixos-rebuild switch --flake .#yourhostname -L"
-```
-
-Afterward here are some useful commands:
-
-```bash
-# Build and switch to new configuration
-make switch
-
-# edit configuration.nix
-kate . &
-
-# check for Nvidia card
-nix-shell -p pciutils --run 'lspci | grep VGA'
-
-# look at network load and other stats?
-nix-shell -p btop --run btop
-
-# login at another computer and start the restic mount and restore
-
-# take over tmux session at local system to watch restore
-tmux new-session -A -s main
-
-# after backup restore reboot computer
-sudo reboot
-
-# run backup script
-```
-
-In the end commit changes to https://github.com/pbek/nixcfg.
 
 ## Commands
 
@@ -135,9 +93,9 @@ sudo nixos-install --flake .#${HOST}
 passwd
 
 # Clone nixcfg repository via https (read-only)
-cd ~ && git clone https://github.com/pbek/nixcfg.git && cd nixcfg
+cd ~ && git clone https://github.com/manuelkocher/nixcfg.git && cd nixcfg
 # or via ssh (read-write)
-cd ~ && git clone git@github.com:pbek/nixcfg.git && cd nixcfg
+cd ~ && git clone git@github.com:manuelkocher/nixcfg.git && cd nixcfg
 
 # Update channels, so command-not-found will work
 sudo nix-channel --update

@@ -230,15 +230,6 @@ home01-restart-nix-serve:
 shell:
     nix-shell --run fish
 
-# Get the nix hash of a QOwnNotes release
-[group('qownnotes')]
-qownnotes-hash:
-    #!/usr/bin/env bash
-    set -euxo pipefail
-    version=$(gum input --placeholder "QOwnNotes version number")
-    url="https://github.com/pbek/QOwnNotes/releases/download/v${version}/qownnotes-${version}.tar.xz"
-    nix-prefetch-url "$url" | xargs nix hash convert --hash-algo sha256
-
 # Get the reverse dependencies of a nix store path
 [group('maintenance')]
 nix-store-reverse-dependencies:
