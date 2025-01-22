@@ -80,6 +80,11 @@
         userNameLong = "Manuel Kocher";
         userNameShort = "Manuel";
         userEmail = "manuel.kocher@tugraz.at";
+        useSecrets = true;
+        termFontSize = 12.0;
+        waylandSupport = true; # Wayland is the default, otherwise use X11
+        usePlasma6 = true; # Plasma 6 is the default, otherwise use Plasma 5
+        useStableJetbrains = false; # Set this to true to use stable versions
       };
 
       nixosConfigurations = {
