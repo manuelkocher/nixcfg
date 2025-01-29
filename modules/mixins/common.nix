@@ -170,6 +170,7 @@
     just # command runner like make
     neosay # send messages to matrix room
     gimp
+    ksnip
   ];
 
   # Do garbage collection
