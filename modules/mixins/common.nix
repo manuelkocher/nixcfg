@@ -171,6 +171,7 @@
     neosay # send messages to matrix room
     gimp
     ksnip
+    webex
   ];
 
   # Do garbage collection
