@@ -172,6 +172,7 @@
     gimp
     ksnip
     webex
+    cowsay
   ];
 
   # Do garbage collection
