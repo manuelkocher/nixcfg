@@ -170,9 +170,10 @@
     just # command runner like make
     neosay # send messages to matrix room
     gimp
-    ksnip
+    ksnip # snipping tool
     webex
     cowsay
+    kdePackages.kcalc # kde calculator
   ];
 
   # Do garbage collection
