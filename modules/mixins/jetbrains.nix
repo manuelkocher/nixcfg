@@ -13,12 +13,26 @@ let
   #  jetbrainsPackages = if useStableJetbrains then pkgs.stable.jetbrains else pkgs.jetbrains;
   # Wait until 24.11 jetbrains work again
   # https://github.com/NixOS/nixpkgs/issues/358171
-  jetbrainsPackages = pkgs.jetbrains;
+  jetbrainsPackages =
+      # GitHub copilot seems broken with JetBrains 2025.1
+      (import
+        (fetchTarball {
+           # Date: 20250503
+           url = "https://github.com/NixOS/nixpkgs/tarball/7a2622e2c0dbad5c4493cb268aba12896e28b008";
+           sha256 = "sha256-MHmBH2rS8KkRRdoU/feC/dKbdlMkcNkB5mwkuipVHeQ=";
+        })
+        {
+          inherit (config.nixpkgs) config;
+          localSystem = {
+            system = "x86_64-linux";
+          };
+        }
+      ).jetbrains;
 in
 ## https://github.com/NixOS/nixpkgs/pull/309011
 #  pkgs = import
 #    (builtins.fetchTarball {
-#      url = https://github.com/NixOS/nixpkgs/archive/c2fbe8c06eec0759234fce4a0453df200be021de.tar.gz;
+#      url = https://ghttps://plugins.jetbrains.com/plugin/17718-github-copilotithub.com/NixOS/nixpkgs/archive/c2fbe8c06eec0759234fce4a0453df200be021de.tar.gz;
 #      sha256 = "sha256:1lhwzgzb0kr12903d1y5a2afghkknx9wgypisnnfz6xg2c6993wz";
 #    })
 #    {
@@ -28,9 +42,9 @@ in
 {
   environment.systemPackages = with pkgs; [
     # https://plugins.jetbrains.com/plugin/17718-github-copilot
-    (jetbrainsPackages.plugins.addPlugins jetbrainsPackages.phpstorm [ "17718" ])
-    (jetbrainsPackages.plugins.addPlugins jetbrainsPackages.clion [ "17718" ])
-    (jetbrainsPackages.plugins.addPlugins jetbrainsPackages.goland [ "17718" ])
+    #(jetbrainsPackages.plugins.addPlugins jetbrainsPackages.phpstorm [ "17718" ])
+    #(jetbrainsPackages.plugins.addPlugins jetbrainsPackages.clion [ "17718" ])
+    #(jetbrainsPackages.plugins.addPlugins jetbrainsPackages.goland [ "17718" ])
   ];
   home-manager.users.${userLogin} = {
     xdg.desktopEntries = {

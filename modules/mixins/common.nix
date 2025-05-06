@@ -158,8 +158,6 @@
     fd # find replacement
     zellij # terminal multiplexer (like tmux)
     netcat-gnu
-    nmap
-    lazygit
     dogdns # dig replacement
     broot # fast directory switcher (has "br" alias for changing into directories)
     difftastic # Structural diff tool that compares files based on their syntax
@@ -169,11 +167,13 @@
     procs # ps "replacement"
     just # command runner like make
     neosay # send messages to matrix room
-    gimp
-    ksnip # snipping tool
-    webex
+    gimp # TODO move to only desktop envs
+    ksnip # snipping tool TODO move to only desktop envs
+    webex # TODO move to only desktop envs
     cowsay
-    kdePackages.kcalc # kde calculator
+    kdePackages.kcalc # kde calculator TODO move to only desktop envs
+    scribus # export pictures with cmyk for printing TODO move to only desktop envs
+    pciutils # graphics card info
   ];
 
   # Do garbage collection
