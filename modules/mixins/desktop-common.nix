@@ -62,12 +62,6 @@
     lazydocker
     uutils-coreutils # GNU coreutils replacement
     inkscape
-
-    # TU Graz
-    vpnc
-    networkmanager-vpnc
-    openconnect
-    networkmanager-openconnect
   ];
 
   programs.fish.shellAliases = {

@@ -32,6 +32,11 @@
 
   networking.hostName = "dp02"; # Define your hostname.
 
+  # Add the openconnect plugin for NetworkManager
+  networking.networkmanager.plugins = with pkgs; [
+    networkmanager-openconnect
+  ];
+
   # Enable networking
   networking.networkmanager.enable = true;
 
