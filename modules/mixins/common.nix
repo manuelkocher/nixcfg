@@ -174,6 +174,7 @@
     kdePackages.kcalc # kde calculator TODO move to only desktop envs
     scribus # export pictures with cmyk for printing TODO move to only desktop envs
     pciutils # graphics card info
+    devenv
   ];
 
   # Do garbage collection
