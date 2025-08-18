@@ -57,6 +57,7 @@
     pinentry-qt # For some reason this wasn't installed by the gpg settings
     cryfs
     onlyoffice-bin
+    libreoffice-qt6-fresh
     gh
     smartmontools
     lazydocker
