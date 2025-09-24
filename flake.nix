@@ -79,7 +79,7 @@
         userLogin = "mkocher";
         userNameLong = "Manuel Kocher";
         userNameShort = "Manuel";
-        userEmail = "manuel.kocher@tugraz.at";
+        userEmail = "manuelkocher98@gmail.com";
         useSecrets = true;
         termFontSize = 12.0;
         waylandSupport = true; # Wayland is the default, otherwise use X11
@@ -100,7 +100,7 @@
             userLogin = "mkocher";
             userNameLong = "Manuel Kocher";
             userNameShort = "Manuel";
-            userEmail = "manuel.kocher@tugraz.at";
+            userEmail = "manuelkocher98@gmail.com";
             useSecrets = false;
           };
         };
