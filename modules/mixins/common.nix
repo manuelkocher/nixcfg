@@ -29,7 +29,6 @@
         tmux = "zellij";
         dig = "dog";
         diff = "difft";
-        ping = "pingu";
         tar = "ouch";
         ps = "procs";
       };
@@ -172,7 +171,7 @@
     webex # TODO move to only desktop envs
     cowsay
     kdePackages.kcalc # kde calculator TODO move to only desktop envs
-    scribus # export pictures with cmyk for printing TODO move to only desktop envs
+    # scribus # export pictures with cmyk for printing TODO move to only desktop envs
     pciutils # graphics card info
     devenv
   ];

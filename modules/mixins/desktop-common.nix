@@ -28,7 +28,7 @@
   environment.systemPackages = with pkgs; [
     kdiff3
     chromium
-    qtcreator
+    stable.qtcreator
     hub
 
     loganalyzer
