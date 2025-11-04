@@ -52,7 +52,7 @@
     nixpkgs-review
     nix-search-cli
     kitty # Terminal with OSC 52 support
-
+    vlc
     #    pinentry-curses
     pinentry-qt # For some reason this wasn't installed by the gpg settings
     cryfs
