@@ -29,7 +29,8 @@
   boot.loader.systemd-boot.enable = false;
   boot.loader.grub = {
     enable = true;
-    devices = [ "/dev/disk/by-uuid/36365f0f-5125-4556-8e74-23e49b84345d" ];
+    devices = [ "/dev/disk/by-id/ata-WD_Green_2.5_2TB_25367MD00707" ];
+    enableCryptodisk = true;
     useOSProber = true;
   };
 
