@@ -166,9 +166,6 @@
     procs # ps "replacement"
     just # command runner like make
     neosay # send messages to matrix room
-    gimp # TODO move to only desktop envs
-    ksnip # snipping tool TODO move to only desktop envs
-    # webex # TODO move to only desktop envs
     cowsay
     kdePackages.kcalc # kde calculator TODO move to only desktop envs
     # scribus # export pictures with cmyk for printing TODO move to only desktop envs

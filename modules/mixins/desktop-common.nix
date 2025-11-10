@@ -47,7 +47,6 @@
     #    pcscd
     exfatprogs
     f2fs-tools
-    ferdium
     wireguard-tools
     nixpkgs-review
     nix-search-cli
@@ -63,6 +62,8 @@
     lazydocker
     uutils-coreutils # GNU coreutils replacement
     inkscape
+    gimp
+    ksnip # snipping tool
   ];
 
   programs.fish.shellAliases = {

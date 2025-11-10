@@ -83,7 +83,6 @@
         useSecrets = true;
         termFontSize = 12.0;
         waylandSupport = true; # Wayland is the default, otherwise use X11
-        usePlasma6 = true; # Plasma 6 is the default, otherwise use Plasma 5
         useStableJetbrains = false; # Set this to true to use stable versions
       };
 
@@ -94,6 +93,22 @@
           modules = commonDesktopModules ++ [
             ./hosts/dp02/configuration.nix
             ./hosts/dp02/hardware-configuration.nix
+          ];
+          specialArgs = self.commonArgs // {
+            inherit inputs;
+            userLogin = "mkocher";
+            userNameLong = "Manuel Kocher";
+            userNameShort = "Manuel";
+            userEmail = "manuelkocher98@gmail.com";
+            useSecrets = false;
+          };
+        };
+        # TU ThinkBook
+        tanuki = nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = commonDesktopModules ++ [
+            ./hosts/tanuki/configuration.nix
+            ./hosts/tanuki/hardware-configuration.nix
           ];
           specialArgs = self.commonArgs // {
             inherit inputs;
