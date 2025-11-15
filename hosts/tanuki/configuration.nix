@@ -26,12 +26,23 @@
   ];
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = false;
-  boot.loader.grub = {
-    enable = true;
-    devices = [ "/dev/disk/by-id/ata-WD_Green_2.5_2TB_25367MD00707" ];
-    enableCryptodisk = true;
-    useOSProber = true;
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.systemd-boot.edk2-uefi-shell.enable = false; # enable uefi shell
+
+  # Create windows entry in systemd-boot menu
+  # As seen in https://wiki.nixos.org/wiki/Dual_Booting_NixOS_and_Windows#systemd-boot_2
+  # Boot into edk2 uefi shell and use "map -c" to show available disks and then "<DISK>:" and "ls EFI" to show the relevant contents
+  boot.loader.systemd-boot.windows = {
+    "windows" =
+      let
+        boot-drive = "FS1"; # edk2 device handle
+      in
+      {
+        title = "Windows 11";
+        efiDeviceHandle = boot-drive;
+        sortKey = "y_windows"; # sort key; show near the bottom
+      };
   };
 
   networking.hostName = "tanuki"; # Define your hostname.
