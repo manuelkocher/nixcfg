@@ -18,6 +18,7 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ../../modules/mixins/users.nix
+    ../../modules/mixins/gaming.nix
     ../../modules/mixins/desktop.nix
     ../../modules/mixins/git.nix
     ../../modules/mixins/audio.nix
