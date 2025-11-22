@@ -63,6 +63,7 @@
     uutils-coreutils # GNU coreutils replacement
     inkscape
     gimp
+    discord
     ksnip # snipping tool
   ];
 
