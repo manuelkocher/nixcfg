@@ -103,7 +103,6 @@
             useSecrets = false;
           };
         };
-        # TU ThinkBook
         tanuki = nixpkgs.lib.nixosSystem {
           inherit system;
           modules = commonDesktopModules ++ [
