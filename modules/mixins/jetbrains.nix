@@ -28,7 +28,7 @@ in
 #    };
 {
   environment.systemPackages = with pkgs; [
-    jetbrainsPackages.phpstorm
+    (jetbrainsPackages.plugins.addPlugins jetbrainsPackages.phpstorm [ "17718" "nixidea"]) # add github copilot, see https://github.com/NixOS/nixpkgs/blob/nixos-unstable/pkgs/applications/editors/jetbrains/plugins/plugins.json and https://github.com/NixOS/nixpkgs/tree/nixos-unstable/pkgs/applications/editors/jetbrains
   ];
   home-manager.users.${userLogin} = {
     xdg.desktopEntries = {
