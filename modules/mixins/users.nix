@@ -27,9 +27,5 @@
       pwdc = "pwd | xclip -sel clip";
       fwup = "fwupdmgr get-updates";
     };
-    # TODO remove after https://github.com/NixOS/nixpkgs/issues/462025 is fixed
-    interactiveShellInit = ''
-        set -p fish_complete_path ${pkgs.fish}/share/fish/completions
-      '';
   };
 }
