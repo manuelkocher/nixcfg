@@ -11,12 +11,11 @@
 {
   # https://home-manager-options.extranix.com
   home-manager.users.${userLogin} = {
+    programs.difftastic.enable = true;
     programs.git = {
       enable = true;
-      # use "git diff --no-ext-diff" for creating patches!
-      difftastic.enable = true;
-      userName = lib.mkDefault userNameLong;
-      userEmail = lib.mkDefault userEmail;
+      settings.user.name = lib.mkDefault userNameLong;
+      settings.user.email = lib.mkDefault userEmail;
       ignores = [
         ".idea"
         ".direnv"
