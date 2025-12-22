@@ -65,6 +65,10 @@
     gimp
     discord
     ksnip # snipping tool
+    ddrescue # data rescue
+    ddrescueview
+    ntfs3g
+    testdisk
   ];
 
   programs.fish.shellAliases = {
@@ -186,6 +190,17 @@
 
   # Enable resoved to let wireguard set a DNS
   services.resolved.enable = true;
+
+  systemd.user.services.dropbox = {
+    description = "Dropbox";
+
+    wantedBy = [ "default.target" ];
+
+    serviceConfig = {
+      ExecStart = "${pkgs.dropbox}/bin/dropbox";
+      Restart = "on-failure";
+    };
+  };
 
   # https://rycee.gitlab.io/home-manager/options.html
   # https://nix-community.github.io/home-manager/options.html#opt-home.file
