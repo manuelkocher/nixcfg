@@ -69,6 +69,8 @@
     ddrescueview
     ntfs3g
     testdisk
+    texlive.combined.scheme-medium
+    vscode
   ];
 
   programs.fish.shellAliases = {
