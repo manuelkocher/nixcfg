@@ -59,6 +59,8 @@
   environment.systemPackages = with pkgs; [
   ];
 
+  programs.nix-ld.enable = true;
+
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
