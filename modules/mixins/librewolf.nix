@@ -13,17 +13,11 @@
       settings = {
         "webgl.disabled" = false; # enable WebGL
         "privacy.resistFingerprinting" = true; # disable fingerprinting
-        "privacy.clearOnShutdown.history" = true; # dont browser history on shutdown 
+        "privacy.clearOnShutdown.history" = false; # dont browser history on shutdown 
         "privacy.clearOnShutdown.cookies" = true; # clear cookies by default on shutdown
         "privacy.clearOnShutdown.downloads" = false; # dont clear downloads on shutdown
+        "privacy.clearOnShutdown_v2.cookiesAndStorage" = true; # newer version of cookie clearing? Not sure why there is an old one, this is the one that works
         "network.cookie.lifetimePolicy" = 2;
-      };
-      # Set per-site cookie permission
-      "permissions.manager.permission.cookie" = {
-        "https://play.qobuz.com/" = 1;  # Allow qobuz webplayer to store cookies
-        "https://qobuz.com/" = 1; # Allow qobuz to store cookies
-        "https://github.com/" = 1; # Allow github to store cookies
-        "https://online.tugraz.at" = 1; # Allow TU Graz to store cookies
       };
     };
   };

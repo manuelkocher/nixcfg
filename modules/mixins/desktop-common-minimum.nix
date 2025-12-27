@@ -86,7 +86,6 @@
 
   environment.systemPackages = with pkgs; [
     firefox
-    librewolf
     magic-wormhole
     xclip
     fzf
