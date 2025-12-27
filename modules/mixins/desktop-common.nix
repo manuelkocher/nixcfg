@@ -71,6 +71,7 @@
     testdisk
     texlive.combined.scheme-medium
     vscode
+    biber
   ];
 
   programs.fish.shellAliases = {
