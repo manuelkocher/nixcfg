@@ -15,6 +15,7 @@
     disko.url = "github:nix-community/disko";
     disko.inputs.nixpkgs.follows = "nixpkgs";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    nix-jetbrains-plugins.url = "github:nix-community/nix-jetbrains-plugins";
     plasma-manager = {
       url = "github:nix-community/plasma-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -34,6 +35,7 @@
       disko,
       nixos-hardware,
       plasma-manager,
+      nix-jetbrains-plugins,
       #      , robotnix
       ...
     }@inputs:
@@ -95,7 +97,7 @@
             ./hosts/dp02/hardware-configuration.nix
           ];
           specialArgs = self.commonArgs // {
-            inherit inputs;
+            inherit inputs system;
             userLogin = "mkocher";
             userNameLong = "Manuel Kocher";
             userNameShort = "Manuel";
@@ -110,7 +112,7 @@
             ./hosts/tanuki/hardware-configuration.nix
           ];
           specialArgs = self.commonArgs // {
-            inherit inputs;
+            inherit inputs system;
             userLogin = "mkocher";
             userNameLong = "Manuel Kocher";
             userNameShort = "Manuel";

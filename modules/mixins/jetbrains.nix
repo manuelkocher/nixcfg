@@ -4,6 +4,8 @@
   inputs,
   xdg,
   userLogin,
+  nix-jetbrains-plugins,
+  system,
   useStableJetbrains,
   ...
 }:
@@ -14,7 +16,6 @@ let
   # Wait until 24.11 jetbrains work again
   # https://github.com/NixOS/nixpkgs/issues/358171
   jetbrainsPackages = pkgs.jetbrains;
-
 in
 ## https://github.com/NixOS/nixpkgs/pull/309011
 #  pkgs = import
@@ -27,8 +28,8 @@ in
 #      localSystem = { system = "x86_64-linux"; };
 #    };
 {
-  environment.systemPackages = with pkgs; [
-    (jetbrainsPackages.plugins.addPlugins jetbrainsPackages.phpstorm [ "17718" "nixidea"]) # add github copilot, see https://github.com/NixOS/nixpkgs/blob/nixos-unstable/pkgs/applications/editors/jetbrains/plugins/plugins.json and https://github.com/NixOS/nixpkgs/tree/nixos-unstable/pkgs/applications/editors/jetbrains
+  environment.systemPackages = with inputs.nix-jetbrains-plugins.lib."${system}"; [
+    (buildIdeWithPlugins jetbrainsPackages "phpstorm" ["nix-idea"]) # add github copilot, see https://github.com/NixOS/nixpkgs/blob/nixos-unstable/pkgs/applications/editors/jetbrains/plugins/plugins.json and https://github.com/NixOS/nixpkgs/tree/nixos-unstable/pkgs/applications/editors/jetbrains
   ];
   home-manager.users.${userLogin} = {
     xdg.desktopEntries = {

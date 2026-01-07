@@ -158,7 +158,7 @@
     fd # find replacement
     zellij # terminal multiplexer (like tmux)
     netcat-gnu
-    dogdns # dig replacement
+    doggo # dig replacement
     broot # fast directory switcher (has "br" alias for changing into directories)
     difftastic # Structural diff tool that compares files based on their syntax
     # pingu # ping, but more colorful
