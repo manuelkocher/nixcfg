@@ -29,7 +29,7 @@ in
 #    };
 {
   environment.systemPackages = with inputs.nix-jetbrains-plugins.lib."${system}"; [
-    (buildIdeWithPlugins jetbrainsPackages "phpstorm" ["nix-idea"]) # add github copilot, see https://github.com/NixOS/nixpkgs/blob/nixos-unstable/pkgs/applications/editors/jetbrains/plugins/plugins.json and https://github.com/NixOS/nixpkgs/tree/nixos-unstable/pkgs/applications/editors/jetbrains
+    (buildIdeWithPlugins jetbrainsPackages "phpstorm" ["nix-idea" "com.github.copilot"]) # add github copilot, see https://github.com/NixOS/nixpkgs/blob/nixos-unstable/pkgs/applications/editors/jetbrains/plugins/plugins.json and https://github.com/NixOS/nixpkgs/tree/nixos-unstable/pkgs/applications/editors/jetbrains
   ];
   home-manager.users.${userLogin} = {
     xdg.desktopEntries = {
