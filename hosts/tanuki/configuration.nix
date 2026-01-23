@@ -24,6 +24,7 @@
     ../../modules/mixins/audio.nix
     ../../modules/mixins/openssh.nix
     ../../modules/mixins/remote-store-cache.nix
+    ./librewolf.nix
   ];
 
   # Bootloader.

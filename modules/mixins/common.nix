@@ -10,7 +10,6 @@
 {
   imports = [
     ./starship.nix
-    ./librewolf.nix
   ];
 
   # Set some fish config
