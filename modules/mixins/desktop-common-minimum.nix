@@ -86,6 +86,7 @@
 
   environment.systemPackages = with pkgs; [
     firefox
+    signal-desktop
     magic-wormhole
     xclip
     fzf
