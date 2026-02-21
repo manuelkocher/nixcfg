@@ -20,6 +20,11 @@
   # https://discourse.nixos.org/t/cups-cups-filters-and-libppd-security-issues/52780
   services.avahi.enable = false;
 
+  # Enable mullvad vpn with GUI
+  # https://nixos.wiki/wiki/Mullvad_VPN
+  services.mullvad-vpn.enable = true;
+  services.mullvad-vpn.package = pkgs.mullvad-vpn;
+
   # Allow some insecure packages to be installed
   nixpkgs.config.permittedInsecurePackages = [
     "qtwebkit-5.212.0-alpha4"
