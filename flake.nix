@@ -120,6 +120,21 @@
             useSecrets = false;
           };
         };
+        osiris = nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = commonDesktopModules ++ [
+            ./hosts/osiris/configuration.nix
+            ./hosts/osiris/hardware-configuration.nix
+          ];
+          specialArgs = self.commonArgs // {
+            inherit inputs system;
+            userLogin = "mkocher";
+            userNameLong = "Manuel Kocher";
+            userNameShort = "Manuel";
+            userEmail = "manuelkocher98@gmail.com";
+            useSecrets = false;
+          };
+        };
       };
     };
 }
