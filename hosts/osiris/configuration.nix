@@ -17,6 +17,7 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    ../../common.nix
     ../../modules/mixins/users.nix
     ../../modules/mixins/git.nix
     ../../modules/mixins/openssh.nix
