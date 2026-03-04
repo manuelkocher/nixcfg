@@ -58,6 +58,7 @@
   networking.networkmanager.enable = true;
 
   environment.systemPackages = with pkgs; [
+    sageWithDoc
   ];
 
   programs.nix-ld.enable = true;
