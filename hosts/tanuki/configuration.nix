@@ -32,6 +32,11 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.systemd-boot.edk2-uefi-shell.enable = false; # enable uefi shell
 
+  # Enable mullvad vpn with GUI
+  # https://nixos.wiki/wiki/Mullvad_VPN
+  services.mullvad-vpn.enable = true;
+  services.mullvad-vpn.package = pkgs.mullvad-vpn;
+
   # Create windows entry in systemd-boot menu
   # As seen in https://wiki.nixos.org/wiki/Dual_Booting_NixOS_and_Windows#systemd-boot_2
   # Boot into edk2 uefi shell and use "map -c" to show available disks and then "<DISK>:" and "ls EFI" to show the relevant contents

@@ -68,7 +68,7 @@
     # latest: version 560
     # set to beta to fix wayland lagging issues
     # TODO remove after bug has been fixed
-    package = config.boot.kernelPackages.nvidiaPackages.beta;
+    package = config.boot.kernelPackages.nvidiaPackages.latest;
 
     # Nvidia power management. Experimental, and can cause sleep/suspend to fail.
     # Enable this if you have graphical corruption issues or application crashes after waking

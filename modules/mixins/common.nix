@@ -171,6 +171,7 @@
     # scribus # export pictures with cmyk for printing TODO move to only desktop envs
     pciutils # graphics card info
     devenv
+    nvd # nix diff tool
   ];
 
   # Do garbage collection
