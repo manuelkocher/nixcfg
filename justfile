@@ -21,8 +21,6 @@ alias ss := switch-simple
 alias u := upgrade
 alias c := cleanup
 alias b := build
-alias bh := build-on-home01
-alias bc := build-on-caliban
 alias fix-command-not-found-error := update-channels
 alias nixfmt := nix-format
 
@@ -76,46 +74,6 @@ _build hostname:
 # Build the current host with nh
 [group('build')]
 build: (_build hostname)
-
-# Build the current host on the Caliban host
-[group('build')]
-build-on-caliban:
-    nixos-rebuild --build-host omega@caliban-1.netbird.cloud --flake .#{{ hostname }} build
-    just _notify "build-on-caliban finished on {{ hostname }}"
-
-# Build and deploy the astra host
-[group('build')]
-build-deploy-astra:
-    nixos-rebuild --target-host omega@astra.netbird.cloud --flake .#astra build
-    just _notify "build-deploy-astra finished on {{ hostname }}"
-
-# Build and deploy the ally2 host
-[group('build')]
-build-deploy-ally2:
-    nixos-rebuild --target-host omega@ally2.lan --flake .#ally2 build
-    just _notify "build-deploy-ally2 finished on {{ hostname }}"
-
-# Build the current host on the Sinope host
-[group('build')]
-build-on-sinope:
-    nixos-rebuild --build-host omega@sinope.netbird.cloud --flake .#{{ hostname }} build
-    just _notify "build-on-sinope finished on {{ hostname }}"
-
-# Build with nh on caliban (--build-host" not found)
-[group('build')]
-nh-build-on-caliban:
-    nh os build -H {{ hostname }} . -- --build-host omega@caliban-1.netbird.cloud
-
-# Build the current host on the Home01 host (use "--max-jobs 1" to restict downloads)
-[group('build')]
-build-on-home01 args='':
-    nixos-rebuild --build-host omega@home01.lan --flake .#{{ hostname }} build {{ args }}
-    just _notify "build-on-home01 finished on {{ hostname }}"
-
-# Build with nh on homew01 (--build-host" not found)
-[group('build')]
-nh-build-on-home01:
-    nh os build -H {{ hostname }} . -- --build-host omega@home01.lan
 
 # Update the flakes
 [group('build')]

@@ -111,7 +111,7 @@
   services.fwupd.enable = true;
 
   # Enable Netbird Wireguard VPN service
-  services.netbird.enable = true;
+  services.netbird.enable = false; # false for now
 
   users.users.${userLogin} = {
     openssh.authorizedKeys.keys = [
