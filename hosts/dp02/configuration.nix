@@ -24,6 +24,7 @@
     ../../modules/mixins/jetbrains.nix
     ../../modules/mixins/openssh.nix
     ../../modules/mixins/remote-store-cache.nix
+    ../../modules/mixins/opencode.nix
   ];
 
   # Bootloader.
