@@ -30,7 +30,10 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.systemd-boot.edk2-uefi-shell.enable = false; # enable uefi shell
+  boot.blacklistedKernelModules = [ "elan_i2c" ];
+
+  # swap device
+  boot.initrd.luks.devices."luks-e502d131-645e-4e13-8639-f91fc78167f7".device = "/dev/disk/by-uuid/e502d131-645e-4e13-8639-f91fc78167f7";
 
   networking.hostName = "shiva"; # Define your hostname.
 
@@ -55,5 +58,5 @@
   };
 
   # We have enough RAM
-  zramSwap.enable = false;
+  zramSwap.enable = true;
 }

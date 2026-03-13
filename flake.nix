@@ -120,6 +120,21 @@
             useSecrets = false;
           };
         };
+        shiva = nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = commonDesktopModules ++ [
+            ./hosts/shiva/configuration.nix
+            ./hosts/shiva/hardware-configuration.nix
+          ];
+          specialArgs = self.commonArgs // {
+            inherit inputs system;
+            userLogin = "mkocher";
+            userNameLong = "Manuel Kocher";
+            userNameShort = "Manuel";
+            userEmail = "manuelkocher98@gmail.com";
+            useSecrets = false;
+          };
+        };
         osiris = nixpkgs.lib.nixosSystem {
           inherit system;
           modules = commonDesktopModules ++ [
