@@ -10,6 +10,7 @@
   userLogin,
   userNameLong,
   userEmail,
+  inputs,
   ...
 }:
 
@@ -63,7 +64,8 @@
   networking.networkmanager.enable = true;
 
   environment.systemPackages = with pkgs; [
-    sageWithDoc
+    wireshark
+    stable.sage
   ];
 
   programs.nix-ld.enable = true;
