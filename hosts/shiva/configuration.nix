@@ -25,6 +25,7 @@
     ../../modules/mixins/openssh.nix
     ../../modules/mixins/remote-store-cache.nix
     ../../modules/mixins/librewolf.nix
+    ../../modules/mixins/dropbox.nix
   ];
 
   # Bootloader.
