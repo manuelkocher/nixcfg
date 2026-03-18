@@ -60,21 +60,6 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  nix = {
-    settings = {
-      substituters = [
-        "https://nix-community.cachix.org"
-        "https://nix-cache.qownnotes.org/main"
-        "https://nix-cache.qownnotes.org/qownnotes"
-      ];
-      trusted-public-keys = [
-        "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-        "main:WYsIaF+ItMNE9Xt976bIGKSKp9jaaVeTzYlfqQqpP28="
-        "qownnotes:7hN006Z7xgK5v97WKFo9u3qcVbZIXHtFmPPM3NPERpM="
-      ];
-    };
-  };
-
   # https://nixos.wiki/wiki/Fonts
   # fonts for starship
   fonts.packages = with pkgs; [

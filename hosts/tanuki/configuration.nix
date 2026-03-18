@@ -10,7 +10,6 @@
   userLogin,
   userNameLong,
   userEmail,
-  inputs,
   ...
 }:
 
@@ -65,6 +64,7 @@
   networking.networkmanager.enable = true;
 
   environment.systemPackages = with pkgs; [
+    texlive.combined.scheme-full
     wireshark
     stable.sage
   ];

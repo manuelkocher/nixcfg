@@ -69,7 +69,6 @@
     ddrescueview
     ntfs3g
     testdisk
-    texlive.combined.scheme-full
     ipe
     vscode
     biber
