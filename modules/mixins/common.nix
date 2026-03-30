@@ -164,6 +164,7 @@
     pciutils # graphics card info
     devenv
     nvd # nix diff tool
+    xxd # hex dump tool
   ];
 
   # Do garbage collection
