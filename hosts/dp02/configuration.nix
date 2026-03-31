@@ -57,13 +57,17 @@
     KWIN_DRM_USE_MODIFIERS="0";
   };
 
+  environment.sessionVariables = {
+    AZURE_RESOURCE_NAME = "zid-digitalisation-coding";
+  };
+
   # https://nixos.wiki/wiki/nvidia
   services.xserver.videoDrivers = [ "nvidia" ];
   nixpkgs.config.nvidia.acceptLicense = true;
   hardware.graphics.enable = true;
   hardware.nvidia = {
     # https://github.com/NVIDIA/open-gpu-kernel-modules?tab=readme-ov-file#compatible-gpus
-    open = false;
+    open = true;
 
     # production: version 550
     # latest: version 560
