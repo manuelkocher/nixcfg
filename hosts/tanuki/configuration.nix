@@ -67,6 +67,14 @@
     texlive.combined.scheme-full
     wireshark
     stable.sage
+    android-studio
+    jadx
+    file
+    eclipse-mat # heap dump analysis
+    android-tools # hprof-conv
+    (python315.withPackages (ps: with ps; [
+    pycryptodome
+    ]))
   ];
 
   programs.nix-ld.enable = true;
