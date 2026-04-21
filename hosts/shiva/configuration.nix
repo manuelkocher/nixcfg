@@ -49,6 +49,16 @@
   environment.systemPackages = with pkgs; [
     wireshark
     stable.sage
+    inputs.pwndbg.packages.${pkgs.system}.default
+    ghidra-bin
+    jadx
+    android-studio
+    file
+    eclipse-mat # heap dump analysis
+    android-tools # hprof-conv
+    (python315.withPackages (ps: with ps; [
+    pycryptodome
+    ]))
   ];
 
   programs.nix-ld.enable = true;
