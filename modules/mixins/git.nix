@@ -37,14 +37,6 @@
         email = ${userEmail}
       [gc]
         autoDetach = false
-      [url "ssh://git@github.com/"]
-        insteadOf = https://github.com/
-      [url "ssh://git@gitlab.com/"]
-        insteadOf = https://gitlab.com/
-      [url "ssh://git@bitbucket.org/"]
-        insteadOf = https://bitbucket.org/
-      [url "ssh://git@gitlab.tugraz.at/"]
-        insteadOf = https://gitlab.tugraz.at/
       [core]
         excludesfile = /home/${userLogin}/.gitignore
       [commit]
