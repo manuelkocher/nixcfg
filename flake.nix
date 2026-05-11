@@ -15,7 +15,7 @@
     disko.url = "github:nix-community/disko";
     disko.inputs.nixpkgs.follows = "nixpkgs";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-    nix-jetbrains-plugins.url = "github:nix-community/nix-jetbrains-plugins";
+    nix-jetbrains-plugins.url = "github:nix-community/nix-jetbrains-plugins/ac7e62b01d2dff57b96f19e98bd4e8e27f34a42b"; #  TODO remove pin when copilot is fixed
     plasma-manager = {
       url = "github:nix-community/plasma-manager";
       inputs.nixpkgs.follows = "nixpkgs";
