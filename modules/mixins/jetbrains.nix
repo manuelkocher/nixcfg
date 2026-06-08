@@ -28,8 +28,8 @@ in
 #      localSystem = { system = "x86_64-linux"; };
 #    };
 {
-  environment.systemPackages = with inputs.nix-jetbrains-plugins.lib."${system}"; [
-    (buildIdeWithPlugins jetbrainsPackages "phpstorm" ["nix-idea" "com.github.copilot"]) # add github copilot, see https://github.com/NixOS/nixpkgs/blob/nixos-unstable/pkgs/applications/editors/jetbrains/plugins/plugins.json and https://github.com/NixOS/nixpkgs/tree/nixos-unstable/pkgs/applications/editors/jetbrains
+  environment.systemPackages = with inputs.nix-jetbrains-plugins.lib; [
+    (buildIdeWithPlugins pkgs "phpstorm" ["nix-idea" "com.github.copilot"]) # add github copilot, see https://github.com/NixOS/nixpkgs/blob/nixos-unstable/pkgs/applications/editors/jetbrains/plugins/plugins.json and https://github.com/NixOS/nixpkgs/tree/nixos-unstable/pkgs/applications/editors/jetbrains
   ];
   home-manager.users.${userLogin} = {
     xdg.desktopEntries = {
