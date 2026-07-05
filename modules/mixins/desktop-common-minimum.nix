@@ -24,7 +24,7 @@
   # Enable the KDE Plasma Desktop Environment.
   # https://nixos.wiki/wiki/KDE
   services.displayManager.sddm.enable = true;
-  programs.kdeconnect.enable = true;
+  # programs.kdeconnect.enable = true;
 
   # Enable bluetooth
   hardware.bluetooth.enable = true;
@@ -33,19 +33,6 @@
   # https://nixos.wiki/wiki/Firewall
   networking.firewall = {
     enable = true;
-    allowedTCPPortRanges = [
-      {
-        from = 1714;
-        to = 1764;
-      } # KDE Connect
-    ];
-    allowedTCPPorts = [ 22 ]; # SSH
-    allowedUDPPortRanges = [
-      {
-        from = 1714;
-        to = 1764;
-      } # KDE Connect
-    ];
   };
 
   # Configure keymap in X11

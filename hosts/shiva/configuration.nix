@@ -22,7 +22,6 @@
     ../../modules/mixins/desktop.nix
     ../../modules/mixins/git.nix
     ../../modules/mixins/audio.nix
-    ../../modules/mixins/openssh.nix
     ../../modules/mixins/remote-store-cache.nix
     ../../modules/mixins/librewolf.nix
     ../../modules/mixins/dropbox.nix
@@ -47,6 +46,7 @@
   networking.networkmanager.enable = true;
 
   environment.systemPackages = with pkgs; [
+    texlive.combined.scheme-full
     wireshark
     stable.sage
     inputs.pwndbg.packages.${pkgs.system}.default
@@ -56,9 +56,12 @@
     file
     eclipse-mat # heap dump analysis
     android-tools # hprof-conv
-    (python315.withPackages (ps: with ps; [
+    (python314.withPackages (ps: with ps; [
     pycryptodome
+    pwntools
     ]))
+    checksec
+    one_gadget
   ];
 
   programs.nix-ld.enable = true;
@@ -70,4 +73,13 @@
 
   # We have enough RAM
   zramSwap.enable = true;
+
+  # Enable mullvad vpn with GUI
+  # https://nixos.wiki/wiki/Mullvad_VPN
+  services.mullvad-vpn.enable = true;
+  services.mullvad-vpn.package = pkgs.mullvad-vpn;
+
+  services.openssh = {
+    enable = false;
+  };
 }
