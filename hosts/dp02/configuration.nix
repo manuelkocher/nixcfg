@@ -44,7 +44,6 @@
   environment.systemPackages = with pkgs; [
     go-passbolt-cli
     zulip
-    mupdf
   ];
 
   # env variables to prevent lagging in wayland
