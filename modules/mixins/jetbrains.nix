@@ -30,6 +30,7 @@ in
 {
   environment.systemPackages = with inputs.nix-jetbrains-plugins.lib; [
     (buildIdeWithPlugins pkgs "phpstorm" ["nix-idea" "com.github.copilot"]) # add github copilot, see https://github.com/NixOS/nixpkgs/blob/nixos-unstable/pkgs/applications/editors/jetbrains/plugins/plugins.json and https://github.com/NixOS/nixpkgs/tree/nixos-unstable/pkgs/applications/editors/jetbrains
+    (buildIdeWithPlugins pkgs "idea" ["nix-idea" "com.github.copilot"]) # add github copilot, see https://github.com/NixOS/nixpkgs/blob/nixos-unstable/pkgs/applications/editors/jetbrains/plugins/plugins.json and https://github.com/NixOS/nixpkgs/tree/nixos-unstable/pkgs/applications/editors/jetbrains
   ];
   home-manager.users.${userLogin} = {
     xdg.desktopEntries = {
