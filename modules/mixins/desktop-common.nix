@@ -55,7 +55,7 @@
     vlc
     #    pinentry-curses
     pinentry-qt # For some reason this wasn't installed by the gpg settings
-    cryfs
+    gocryptfs
     onlyoffice-desktopeditors
     libreoffice-qt6-fresh
     gh
