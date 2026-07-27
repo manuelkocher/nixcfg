@@ -31,9 +31,7 @@
     chromium
     stable.qtcreator
     hub
-
     loganalyzer
-
     keepassxc
     gcc
     gdb

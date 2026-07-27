@@ -165,6 +165,7 @@
     devenv
     nvd # nix diff tool
     xxd # hex dump tool
+    openssl
   ];
 
   # Do garbage collection
