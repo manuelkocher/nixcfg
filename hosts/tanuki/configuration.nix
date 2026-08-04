@@ -77,7 +77,22 @@
     ]))
   ];
 
-  programs.nix-ld.enable = true;
+  programs.nix-ld = {
+    enable = true;
+    libraries = with pkgs; [
+      gtk3
+      glib
+      cairo
+      pango
+      gdk-pixbuf
+      xorg.libX11
+      android-tools
+      harfbuzz
+      atk
+      libepoxy
+      fontconfig
+    ];
+  };
 
   hardware.graphics = {
     enable = true;
