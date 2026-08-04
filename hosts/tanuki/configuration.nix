@@ -36,7 +36,7 @@
   # Enable mullvad vpn with GUI
   # https://nixos.wiki/wiki/Mullvad_VPN
   services.mullvad-vpn.enable = true;
-  services.mullvad-vpn.package = pkgs.mullvad-vpn;
+  services.mullvad-vpn.gui.enable = true;
 
   # Create windows entry in systemd-boot menu
   # As seen in https://wiki.nixos.org/wiki/Dual_Booting_NixOS_and_Windows#systemd-boot_2
