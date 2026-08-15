@@ -65,7 +65,7 @@
     discord
     ksnip # snipping tool
     ddrescue # data rescue
-    ddrescueview
+    #ddrescueview
     ntfs3g
     testdisk
     ipe
