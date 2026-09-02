@@ -62,6 +62,7 @@
     ]))
     checksec
     one_gadget
+    slack
   ];
 
   programs.nix-ld.enable = true;
