@@ -57,8 +57,9 @@
     eclipse-mat # heap dump analysis
     android-tools # hprof-conv
     (python314.withPackages (ps: with ps; [
-    pycryptodome
-    pwntools
+      pycryptodome
+      pwntools
+      pip
     ]))
     checksec
     one_gadget
