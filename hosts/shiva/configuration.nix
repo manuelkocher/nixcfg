@@ -59,11 +59,11 @@
     (python314.withPackages (ps: with ps; [
       pycryptodome
       pwntools
-      pip
     ]))
     checksec
     one_gadget
     slack
+    conda
   ];
 
   programs.nix-ld.enable = true;
