@@ -134,6 +134,7 @@
     dig
     gnumake
     restic
+    zip
     nix-tree # look into the nix store
     erdtree # tree replacement
     dust # disk usage (du) replacement
