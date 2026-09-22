@@ -37,7 +37,6 @@
     gdb
     cmake
     chromium
-    google-chrome
     vscode
     yubikey-manager
     pam_u2f
