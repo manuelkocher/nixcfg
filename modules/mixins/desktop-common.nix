@@ -67,7 +67,7 @@
     #ddrescueview
     ntfs3g
     testdisk
-    ipe
+    #ipe
     vscode
     biber
     kdePackages.kclock
