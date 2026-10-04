@@ -72,9 +72,11 @@
     file
     eclipse-mat # heap dump analysis
     android-tools # hprof-conv
-    (python315.withPackages (ps: with ps; [
-    pycryptodome
+    (python314.withPackages (ps: with ps; [
+      pycryptodome
+      pwntools
     ]))
+    conda
   ];
 
   programs.nix-ld = {
