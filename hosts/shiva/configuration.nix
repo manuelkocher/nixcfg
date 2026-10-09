@@ -40,6 +40,7 @@
   # Add the openconnect plugin for NetworkManager
   networking.networkmanager.plugins = with pkgs; [
     networkmanager-openconnect
+    networkmanager-openvpn
   ];
 
   # Enable networking
@@ -64,6 +65,7 @@
     one_gadget
     slack
     conda
+    pdfarranger
   ];
 
   programs.nix-ld.enable = true;
