@@ -37,7 +37,6 @@
     gdb
     cmake
     chromium
-    vscode
     yubikey-manager
     pam_u2f
     yubico-pam
@@ -68,7 +67,7 @@
     ntfs3g
     testdisk
     #ipe
-    vscode
+    #vscode
     biber
     kdePackages.kclock
   ];

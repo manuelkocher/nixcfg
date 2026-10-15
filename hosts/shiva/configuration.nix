@@ -25,6 +25,8 @@
     ../../modules/mixins/remote-store-cache.nix
     ../../modules/mixins/librewolf.nix
     ../../modules/mixins/dropbox.nix
+    ../../modules/mixins/vscode.nix
+    ../../modules/mixins/code-jail.nix
   ];
 
   # Bootloader.
@@ -65,6 +67,7 @@
     one_gadget
     slack
     conda
+    ansible
     pdfarranger
   ];
 
@@ -83,7 +86,17 @@
   services.mullvad-vpn.enable = true;
   services.mullvad-vpn.gui.enable = true;
 
+  programs.vscode-custom.enable = true;
+
   services.openssh = {
     enable = false;
+  };
+
+  programs.code-jail = {
+    enable = true;
+    sharedClaudeLogin = true;
+    settings = {
+      "workbench.colorTheme" = "Default High Contrast";
+    };
   };
 }
