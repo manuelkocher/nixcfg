@@ -67,13 +67,18 @@
   time.timeZone = "Europe/Vienna";
 
   # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
+  i18n.defaultLocale = "de_AT.UTF-8";
+
+  i18n.supportedLocales = [
+    "de_AT.UTF-8/UTF-8"
+    "en_GB.UTF-8/UTF-8"
+  ];
 
   i18n.extraLocaleSettings = {
-    # LC_ALL = "de_AT.UTF-8";
+    LC_ALL = "en_GB.UTF-8";
     LC_ADDRESS = "de_AT.UTF-8";
     LC_COLLATE = "de_AT.UTF-8";
-    LC_CTYPE = "en_US.UTF-8";
+    LC_CTYPE = "en_GB.UTF-8";
     LC_IDENTIFICATION = "de_AT.UTF-8";
     LC_MEASUREMENT = "de_AT.UTF-8";
     LC_MONETARY = "de_AT.UTF-8";
