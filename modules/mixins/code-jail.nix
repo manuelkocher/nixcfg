@@ -142,6 +142,7 @@ let
 
       flags=(--password-store=basic)
       ${lib.optionalString cfg.disableChromiumSandbox ''flags+=(--disable-chromium-sandbox)''}
+      ${lib.optionalString cfg.skipWelcome ''flags+=(--skip-welcome --skip-release-notes)''}
 
       if [ -n "''${WAYLAND_DISPLAY:-}" ] && [ -S "$rt/$WAYLAND_DISPLAY" ]; then
         args+=(--ro-bind "$rt/$WAYLAND_DISPLAY" "$rt/$WAYLAND_DISPLAY")
@@ -190,7 +191,7 @@ in
 
         # Java support (the individual parts of the "Extension Pack for Java")
         pkgs.vscode-extensions.redhat.java                    # language server: completion, diagnostics, refactoring
-        pkgs.vscode-extensions.vscjava.vscode-java-debug      # debugger
+        (import ./vscode-java-debug.nix pkgs)                 # debugger (patched for the read-only store)
         pkgs.vscode-extensions.vscjava.vscode-java-test       # JUnit / TestNG runner
         pkgs.vscode-extensions.vscjava.vscode-java-dependency # project & dependency explorer
         pkgs.vscode-extensions.vscjava.vscode-maven           # Maven integration
@@ -258,6 +259,18 @@ in
         windows. Off by default: code-jail refuses to start instead.
       '';
     };
+
+    skipWelcome = mkOption {
+      type = types.bool;
+      default = true;
+      description = ''
+        Start VS Code with --skip-welcome and --skip-release-notes. Every jail
+        looks like a fresh install to VS Code, so without this each new project
+        opens the Welcome tab and first-launch onboarding, and the release
+        notes after every update.
+      '';
+    };
+
 
     disableChromiumSandbox = mkOption {
       type = types.bool;

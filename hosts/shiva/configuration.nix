@@ -69,6 +69,7 @@
     conda
     ansible
     pdfarranger
+    impression
   ];
 
   programs.nix-ld.enable = true;
@@ -97,6 +98,8 @@
     sharedClaudeLogin = true;
     settings = {
       "workbench.colorTheme" = "Default High Contrast";
+      "workbench.startupEditor" = "none";                            # no Welcome tab on start
+      "workbench.welcomePage.walkthroughs.openOnInstall" = false;    # no extension walkthroughs
     };
   };
 }

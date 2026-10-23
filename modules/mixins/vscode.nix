@@ -10,15 +10,16 @@ let
 
   vscode = pkgs.vscode-with-extensions.override {
     vscodeExtensions = with pkgs.vscode-extensions; [
-      # Requested extensions
-      anthropic.claude-code
-      streetsidesoftware.code-spell-checker # base extension the German dictionary depends on
+      # spell checkers for english and german code (primarly for latex)
+      streetsidesoftware.code-spell-checker
       streetsidesoftware.code-spell-checker-german
+
+      # nix langauge support (e.g. highlighting)
       bbenoist.nix
 
       # Java support (the individual parts of the "Extension Pack for Java")
       redhat.java                    # language server: completion, diagnostics, refactoring
-      vscjava.vscode-java-debug      # debugger
+      (import ./vscode-java-debug.nix pkgs) # debugger (patched for the read-only store)
       vscjava.vscode-java-test       # JUnit / TestNG runner
       vscjava.vscode-java-dependency # project & dependency explorer
       vscjava.vscode-maven           # Maven integration
