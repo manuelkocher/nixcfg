@@ -77,6 +77,7 @@
       pwntools
     ]))
     conda
+    godot
   ];
 
   programs.nix-ld = {

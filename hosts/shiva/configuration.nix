@@ -161,6 +161,7 @@ in
     pdfarranger
     impression
     restic-nas
+    godot
   ];
 
   programs.nix-ld.enable = true;
